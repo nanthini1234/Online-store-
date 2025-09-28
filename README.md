@@ -1,31 +1,21 @@
-## Taiwlind Simple Singup Page
-This project is created for teaching how to create a singup page with Tailwind CSS for Beginner. 
+# React + Vite
 
-![alt tag](https://raw.githubusercontent.com/phithounsavanh/Tailwind-Simple-Signup-Page/master/Readme/tailwind%20register.png) 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-### Getting started
+Currently, two official plugins are available:
 
-Vite is used to set up a project. If you clone this project to your local computer, enter these commands to run to the project.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Install Node library
+- 
+# threejsproject
+It a website based on threejs and react, where you can customize your own product.
+If you want to run this project in your own local devices
+then you have to follow this command 
+step 1: first open terminal and write npm install
+step 2: write cd client
+step 3: write npm run dev
+and click on localhost and then you are able to access the website.
 
-```npm
-
-npm install
-
-```
-
-Start the project
-
-```npm
-
-npm run dev
-
-```
-
-### Resources Link
-
-Watch a video tutorial here - [https://youtu.be/TORSyJN9sOg](https://youtu.be/TORSyJN9sOg)
-
-Download the Figma file - [https://drive.google.com/file/d/1Ou1IWvxVvKw5FOt9-n2rj7JiEMvaeRvr/view?usp=sharing](https://drive.google.com/file/d/1Ou1IWvxVvKw5FOt9-n2rj7JiEMvaeRvr/view?usp=sharing)
-
+![Screenshot 2024-04-17 154509](https://github.com/Rajkamal202/threejs/assets/122449211/88052d50-b1a0-41f4-bb91-472efa631b5f)
+![Screenshot 2024-04-17 154551](https://github.com/Rajkamal202/threejs/assets/122449211/c5586410-cf99-4168-8a8b-36a9f7afc793)
