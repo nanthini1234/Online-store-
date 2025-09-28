@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Case Customization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: antiquewhite;
+        }
+
+        #brand-selection, #model-selection, #customization {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .brand, .model {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .brand img {
+            width: 130px;
+            height: 100px;
+            border-radius: 19px;
+            box-shadow: 8px 8px 10px gray;
+        }
+
+        .model {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.571);
+        }
+
+        .customization-options button {
+            margin: 10px;
+            padding: 10px 35px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 5px gray;
+        }
+
+        .case-preview {
+            margin-top: 20px;
+        }
+
+        #add-to-bag {
+            background-color: #ff5a5f;
+            color: white;
+            padding: 13px 35px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .custom-text {
+            position: absolute;
+            color: black;
+            font-size: 16px;
+        }
+
+        .custom-image {
+            position: absolute;
+            max-width: 100px; /* Max width for the custom image */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="brand-selection">
+        <h2>Select Your Brand</h2>
+        <div class="brand" onclick="selectBrand('Apple')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+            <p>Apple</p>
+        </div>
+        <div class="brand" onclick="selectBrand('Samsung')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung">
+            <p>Samsung</p>
+        </div>
+        <div class="brand" onclick="selectBrand('OnePlus')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/OnePlus_logo.svg" alt="OnePlus">
+            <p>OnePlus</p>
+        </div>
+        <div class="brand" onclick="selectBrand('Oppo')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Oppo_Logo.png" alt="Oppo">
+            <p>Oppo</p>
+        </div>
+        <div class="brand" onclick="selectBrand('Xiaomi')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Xiaomi_Logo.svg" alt="Xiaomi">
+            <p>Xiaomi</p>
+        </div>
+        <div class="brand" onclick="selectBrand('RealMe')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Realme_Logo.svg" alt="RealMe">
+            <p>RealMe</p>
+        </div>
+        <div class="brand" onclick="selectBrand('Vivo')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Vivo_Logo.svg" alt="Vivo">
+            <p>Vivo</p>
+        </div>
+        <div class="brand" onclick="selectBrand('Google')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Google_Pixel_logo.svg" alt="Google Pixel">
+            <p>Google Pixel</p>
+        </div>
+    </div>
+
+    <div id="model-selection" style="display: none;">
+        <h2>Select Your Model</h2>
+        <div id="model-list"></div>
+    </div>
+
+    <div id="customization" style="display: none;">
+        <h2>Customize Your Case</h2>
+        <div id="customization-area" class="case-preview" style="position: relative; width: 300px; height: 600px; border: 1px solid #ccc; margin: 0 auto;">
+            <!-- Customization area -->
+        </div>
+        <div class="customization-options">
+            <button onclick="addText()">Add Text</button>
+            <input type="file" id="image-upload" accept="image/*" style="margin: 10px;">
+            <button id="add-to-bag">Add to Bag</button>
+        </div>
+    </div>
+
+    <script>
+        const models = {
+            'Apple': ['iPhone 10', 'iPhone 11', 'iPhone 12', 'iPhone 13', 'iPhone 14', 'iPhone 15', 'iPhone 15 Pro Max'],
+            'OnePlus': ['OnePlus 7', 'OnePlus 8', 'OnePlus 9', 'OnePlus 10', 'OnePlus Nord'],
+            'Oppo': ['Oppo A9', 'Oppo Reno 4', 'Oppo Find X2', 'Oppo F17'],
+            'Samsung': ['Galaxy S20', 'Galaxy S21', 'Galaxy S22', 'Galaxy S23'],
+            'Xiaomi': ['Mi 9', 'Mi 10', 'Mi 11', 'Mi 12'],
+            'RealMe': ['RealMe 5', 'RealMe 6', 'RealMe 7', 'RealMe 8'],
+            'Vivo': ['Vivo X50', 'Vivo X60', 'Vivo X70', 'Vivo X80'],
+            'Google': ['Pixel 4', 'Pixel 5', 'Pixel 6', 'Pixel 7'],
+        };
+
+        function selectBrand(brand) {
+            document.getElementById('brand-selection').style.display = 'none';
+            document.getElementById('model-selection').style.display = 'block';
+
+            const modelList = document.getElementById('model-list');
+            modelList.innerHTML = ''; // Clear previous models
+
+            models[brand].forEach(model => {
+                const modelDiv = document.createElement('div');
+                modelDiv.className = 'model';
+                modelDiv.textContent = model;
+                modelDiv.onclick = () => selectModel(model);
+                modelList.appendChild(modelDiv);
+            });
+        }
+
+        function selectModel(model) {
+            document.getElementById('model-selection').style.display = 'none';
+            document.getElementById('customization').style.display = 'block';
+        }
+
+        function addText() {
+            const text = prompt("Enter text to add:");
+            const textElement = document.createElement('div');
+            textElement.className = 'custom-text';
+            textElement.textContent = text;
+            textElement.style.left = '50px'; // Set default position
+            textElement.style.top = '50px'; // Set default position
+            document.getElementById('customization-area').appendChild(textElement);
+        }
+
+        document.getElementById('image-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const imgElement = document.createElement('img');
+                imgElement.className = 'custom-image';
+                imgElement.src = URL.createObjectURL(file);
+                imgElement.style.left = '50px'; // Set default position
+                imgElement.style.top = '50px'; // Set default position
+                document.getElementById('customization-area').appendChild(imgElement);
+            }
+        });
+    </script>
+    
+</body>
+</html>

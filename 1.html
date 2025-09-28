@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="product-page">
+            <div class="product-image">
+                <img src="https://m.media-amazon.com/images/I/81xoJC+xceL.AC_UY1100.jpg" alt="Black Bottle Small">
+            </div>
+            <div class="product-details">
+                <h1>Black Bottle Small</h1>
+                <p class="price">
+                    <span class="current-price">$32.00</span>
+                    <span class="original-price">$36.00</span>
+                    <span class="discount">11% off</span>
+                </p>
+                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tristique malesuada elit, ut facilisis tellus elementum id.</p>
+                <div class="product-guide">
+                    <label for="quantity">Qty:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1">
+                    <a href="billing.html"><button class="btn add-to-cart">Add To Cart</button></a>
+                    <button class="btn wishlist">Add to wishlist</button>
+                    <button class="btn compare">Compare</button>
+                </div>
+                <div class="product-meta">
+                    <p>Category: Packaging</p>
+                    <p>Tags: banner, brochure, card, flyer, logo, packaging, poster, sticker, t-shirt</p>
+                
+                </div>
+            </div>
+        </div>
+        <div class="product-tabs">
+            <ul class="flex">
+                <li class="active" data-tab="description">Description</li>
+                <li data-tab="additional-info">Additional Information</li>
+                <li data-tab="reviews">Reviews (0)</li>
+                <li data-tab="more-products">More Products</li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="description">
+                    <p>CONSECTETUR A SCELERISQUE</p>
+                    <p>Sed risus neque, sagittis sed pellentesque at, pharetra ut nunc. Phasellus id enim eget ante pellentesque pharetra. Phasellus et nisl urna.</p>
+                </div>
+                <div class="tab-pane" id="additional-info">
+                    <p>IN PHARETRA TURPIS</p>
+                    <p>Built around a solid beech frame with legs in polished stainless steel. The Wing chair employs hand-finished stainless steel legs.</p>
+                </div>
+                <div class="tab-pane" id="reviews">
+                    <p>No reviews yet.</p>
+                </div>
+                <div class="tab-pane" id="more-products">
+                    <p>Check out more products!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="1.js"></script>
+</body>
+</html>

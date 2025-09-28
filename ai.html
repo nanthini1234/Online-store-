@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>T-Shirt Customization</title>
+	<style>
+        body {
+	font-family: Arial, sans-serif;
+	background-color: #c39393;
+}
+
+#t-shirt-canvas {
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#image-upload {
+	margin-top: 20px;
+}
+
+#add-text {
+	margin-top: 10px;
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#add-text:hover {
+	background-color: #3e8e41;
+}
+
+    </style>
+</head>
+<body>
+	<canvas id="t-shirt-canvas" width="400" height="400"></canvas>
+	<input type="file" id="image-upload">
+	<button id="add-text">Add Text</button>
+	<script>
+        const canvas = document.getElementById('t-shirt-canvas');
+const ctx = canvas.getContext('2d');
+const imageUpload = document.getElementById('image-upload');
+const addTextButton = document.getElementById('add-text');
+
+// Load t-shirt image
+const tShirtImage = new Image();
+tShirtImage.onload = () => {
+	ctx.drawImage(tShirtImage, 0, 0, canvas.width, canvas.height);
+};
+tShirtImage.src = 'tshirt.png'; // Replace with your t-shirt image
+
+imageUpload.addEventListener('change', (e) => {
+	const reader = new FileReader();
+	reader.onload = (event) => {
+		const image = new Image();
+		image.onload = () => {
+			ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+		};
+		image.src = event.target.result;
+	};
+	reader.readAsDataURL(e.target.files[0]);
+});
+
+addTextButton.addEventListener('click', () => {
+	const text = prompt('Enter text:');
+	ctx.font = '24px Arial';
+	ctx.fillStyle = '#000';
+	ctx.textAlign = 'center';
+	ctx.textBaseline = 'middle';
+	ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+});
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Mug Designer</title>
+    <link rel="stylesheet" href="3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Custom Mug Designer</h1>
+        <div class="color-picker">
+            <label for="color">Pick Color:</label>
+            <input type="color" id="color" name="color" value="#ffffff">
+        </div>
+        <canvas id="mug-canvas" width="500" height="500"></canvas>
+        <div class="controls">
+            <button onclick="addText()">Add Text</button>
+            <input type="file" id="upload-image" onchange="uploadImage()">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <script src="3.js"></script>
+</body>
+</html>

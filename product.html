@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12">
+        <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+          <!-- Heading & Filters -->
+          <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
+            <div>
+              <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                  <li class="inline-flex items-center">
+                    <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white">
+                      <svg class="me-2.5 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+                      </svg>
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <div class="flex items-center">
+                      <svg class="h-5 w-5 text-gray-400 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
+                      </svg>
+                      <a href="#" class="ms-1 text-sm font-medium text-gray-700 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white md:ms-2">Products</a>
+                    </div>
+                  </li>
+                  <li aria-current="page">
+                    <div class="flex items-center">
+                      <svg class="h-5 w-5 text-gray-400 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
+                      </svg>
+                      <span class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400 md:ms-2">Electronics</span>
+                    </div>
+                  </li>
+                </ol>
+              </nav>
+              <h2 class="mt-3 text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Electronics</h2>
+            </div>
+            <div class="flex items-center space-x-4">
+              <button data-modal-toggle="filterModal" data-modal-target="filterModal" type="button" class="flex w-full items-center justify-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 sm:w-auto">
+                <svg class="-ms-0.5 me-2 h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18.796 4H5.204a1 1 0 0 0-.753 1.659l5.302 6.058a1 1 0 0 1 .247.659v4.874a.5.5 0 0 0 .2.4l3 2.25a.5.5 0 0 0 .8-.4v-7.124a1 1 0 0 1 .247-.659l5.302-6.059c.566-.646.106-1.658-.753-1.658Z" />
+                </svg>
+                Filters
+                <svg class="-me-0.5 ms-2 h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7" />
+                </svg>
+              </button>
+              <button id="sortDropdownButton1" data-dropdown-toggle="dropdownSort1" type="button" class="flex w-full items-center justify-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 sm:w-auto">
+                <svg class="-ms-0.5 me-2 h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M7 4l3 3M7 4 4 7m9-3h6l-6 6h6m-6.5 10 3.5-7 3.5 7M14 18h4" />
+                </svg>
+                Sort
+                <svg class="-me-0.5 ms-2 h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="dropdownSort1" class="z-50 hidden w-40 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700" data-popper-placement="bottom">
+                <ul class="p-2 text-left text-sm font-medium text-gray-500 dark:text-gray-400" aria-labelledby="sortDropdownButton">
+                  <li>
+                    <a href="#" class="group inline-flex w-full items-center rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"> The most popular </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group inline-flex w-full items-center rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"> Newest </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group inline-flex w-full items-center rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"> Increasing price </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group inline-flex w-full items-center rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"> Decreasing price </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group inline-flex w-full items-center rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"> No. reviews </a>
+                  </li>
+                  <li>
+                    <a href="#" class="group inline-flex w-full items-center rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"> Discount % </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div class="h-56 w-full">
+                <a href="#">
+                  <img class="mx-auto h-full dark:hidden" src="data:image/jpeg;base64,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" alt="" />
+                  <img class="mx-auto hidden h-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="" />
+                </a>
+              </div>
+              <div class="pt-6">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <span class="me-2 rounded bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900 dark:text-primary-300"> Up to 35% off </span>
+      
+                  <div class="flex items-center justify-end gap-1">
+                    <button type="button" data-tooltip-target="tooltip-quick-look" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Quick look </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                        <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-quick-look" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Quick look
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+      
+                    <button type="button" data-tooltip-target="tooltip-add-to-favorites" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Add to Favorites </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-add-to-favorites" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Add to favorites
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+                  </div>
+                </div>
+      
+                <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">Apple iMac 27", 1TB HDD, Retina 5K Display, M3 Max</a>
+      
+                <div class="mt-2 flex items-center gap-2">
+                  <div class="flex items-center">
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                  </div>
+      
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">5.0</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">(455)</p>
+                </div>
+      
+                <ul class="mt-2 flex items-center gap-4">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h6l2 4m-8-4v8m0-8V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v9h2m8 0H9m4 0h2m4 0h2v-4m0 0h-5m3.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-10 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Fast Delivery</p>
+                  </li>
+      
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Price</p>
+                  </li>
+                </ul>
+      
+                <div class="mt-4 flex items-center justify-between gap-4">
+                  <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">$1,699</p>
+      
+                  <button type="button" class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                    </svg>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div class="h-56 w-full">
+                <a href="#">
+                  <img class="mx-auto h-full dark:hidden" src="data:image/jpeg;base64,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" alt="" />
+                  <img class="mx-auto hidden h-full dark:block" src="data:image/jpeg;base64,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" alt="" />
+                </a>
+              </div>
+      
+              <div class="pt-6">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <span class="me-2 rounded bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900 dark:text-primary-300"> Up to 15% off </span>
+      
+                  <div class="flex items-center justify-end gap-1">
+                    <button type="button" data-tooltip-target="tooltip-quick-look-2" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Quick look </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                        <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-quick-look-2" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Quick look
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+      
+                    <button type="button" data-tooltip-target="tooltip-add-to-favorites-2" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Add to Favorites </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-add-to-favorites-2" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Add to favorites
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+                  </div>
+                </div>
+      
+                <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">Apple iPhone 15 Pro Max, 256GB, Blue Titanium</a>
+      
+                <div class="mt-2 flex items-center gap-2">
+                  <div class="flex items-center">
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                  </div>
+      
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">4.9</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">(1,233)</p>
+                </div>
+      
+                <ul class="mt-2 flex items-center gap-4">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m7.171 12.906-2.153 6.411 2.672-.89 1.568 2.34 1.825-5.183m5.73-2.678 2.154 6.411-2.673-.89-1.568 2.34-1.825-5.183M9.165 4.3c.58.068 1.153-.17 1.515-.628a1.681 1.681 0 0 1 2.64 0 1.68 1.68 0 0 0 1.515.628 1.681 1.681 0 0 1 1.866 1.866c-.068.58.17 1.154.628 1.516a1.681 1.681 0 0 1 0 2.639 1.682 1.682 0 0 0-.628 1.515 1.681 1.681 0 0 1-1.866 1.866 1.681 1.681 0 0 0-1.516.628 1.681 1.681 0 0 1-2.639 0 1.681 1.681 0 0 0-1.515-.628 1.681 1.681 0 0 1-1.867-1.866 1.681 1.681 0 0 0-.627-1.515 1.681 1.681 0 0 1 0-2.64c.458-.361.696-.935.627-1.515A1.681 1.681 0 0 1 9.165 4.3ZM14 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Seller</p>
+                  </li>
+      
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Price</p>
+                  </li>
+                </ul>
+      
+                <div class="mt-4 flex items-center justify-between gap-4">
+                  <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">$1,199</p>
+      
+                  <button type="button" class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                    </svg>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div class="h-56 w-full">
+                <a href="#">
+                  <img class="mx-auto h-full dark:hidden" src="data:image/jpeg;base64,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" alt="" />
+                  <img class="mx-auto hidden h-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/ipad-dark.svg" alt="" />
+                </a>
+              </div>
+      
+              <div class="pt-6">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <span class="me-2 rounded bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900 dark:text-primary-300"> Up to 35% off </span>
+      
+                  <div class="flex items-center justify-end gap-1">
+                    <button type="button" data-tooltip-target="tooltip-quick-look-3" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Quick look </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                        <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-quick-look-3" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Quick look
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+      
+                    <button type="button" data-tooltip-target="tooltip-add-to-favorites-3" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Add to Favorites </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-add-to-favorites-3" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Add to favorites
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+                  </div>
+                </div>
+      
+                <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">iPad Pro 13-Inch (M4): XDR Display, 512GB</a>
+      
+                <div class="mt-2 flex items-center gap-2">
+                  <div class="flex items-center">
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                  </div>
+      
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">4.9</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">(879)</p>
+                </div>
+      
+                <ul class="mt-2 flex items-center gap-4">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h6l2 4m-8-4v8m0-8V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v9h2m8 0H9m4 0h2m4 0h2v-4m0 0h-5m3.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-10 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Shipping Today</p>
+                  </li>
+      
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Price</p>
+                  </li>
+                </ul>
+      
+                <div class="mt-4 flex items-center justify-between gap-4">
+                  <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">$799</p>
+      
+                  <button type="button" class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                    </svg>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div class="h-56 w-full">
+                <a href="#">
+                  <img class="mx-auto h-full dark:hidden" src="data:image/jpeg;base64,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" alt="" />
+                  <img class="mx-auto hidden h-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/ps5-dark.svg" alt="" />
+                </a>
+              </div>
+      
+              <div class="pt-6">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <span class="me-2 rounded bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900 dark:text-primary-300"> Up to 10% off </span>
+      
+                  <div class="flex items-center justify-end gap-1">
+                    <button type="button" data-tooltip-target="tooltip-quick-look-4" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Quick look </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                        <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-quick-look-4" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Quick look
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+      
+                    <button type="button" data-tooltip-target="tooltip-add-to-favorites-4" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Add to Favorites </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-add-to-favorites-4" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Add to favorites
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+                  </div>
+                </div>
+      
+                <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">PlayStation®5 Console – 1TB, PRO Controller</a>
+      
+                <div class="mt-2 flex items-center gap-2">
+                  <div class="flex items-center">
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                  </div>
+      
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">4,8</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">(2,957)</p>
+                </div>
+      
+                <ul class="mt-2 flex items-center gap-4">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h6l2 4m-8-4v8m0-8V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v9h2m8 0H9m4 0h2m4 0h2v-4m0 0h-5m3.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-10 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Fast Delivery</p>
+                  </li>
+      
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Price</p>
+                  </li>
+                </ul>
+      
+                <div class="mt-4 flex items-center justify-between gap-4">
+                  <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">$499</p>
+      
+                  <button type="button" class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                    </svg>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div class="h-56 w-full">
+                <a href="#">
+                  <img class="mx-auto h-full dark:hidden" src="data:image/jpeg;base64,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" alt="" />
+                  <img class="mx-auto hidden h-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/xbox-dark.svg" alt="" />
+                </a>
+              </div>
+      
+              <div class="pt-6">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <span class="me-2 rounded bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900 dark:text-primary-300"> Up to 10% off </span>
+      
+                  <div class="flex items-center justify-end gap-1">
+                    <button type="button" data-tooltip-target="tooltip-quick-look-5" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Quick look </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                        <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-quick-look-5" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Quick look
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+      
+                    <button type="button" data-tooltip-target="tooltip-add-to-favorites-5" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Add to Favorites </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-add-to-favorites-5" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Add to favorites
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+                  </div>
+                </div>
+      
+                <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">Microsoft Xbox Series X 1TB Gaming Console</a>
+      
+                <div class="mt-2 flex items-center gap-2">
+                  <div class="flex items-center">
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                  </div>
+      
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">4.8</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">(4,263)</p>
+                </div>
+      
+                <ul class="mt-2 flex items-center gap-4">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m7.171 12.906-2.153 6.411 2.672-.89 1.568 2.34 1.825-5.183m5.73-2.678 2.154 6.411-2.673-.89-1.568 2.34-1.825-5.183M9.165 4.3c.58.068 1.153-.17 1.515-.628a1.681 1.681 0 0 1 2.64 0 1.68 1.68 0 0 0 1.515.628 1.681 1.681 0 0 1 1.866 1.866c-.068.58.17 1.154.628 1.516a1.681 1.681 0 0 1 0 2.639 1.682 1.682 0 0 0-.628 1.515 1.681 1.681 0 0 1-1.866 1.866 1.681 1.681 0 0 0-1.516.628 1.681 1.681 0 0 1-2.639 0 1.681 1.681 0 0 0-1.515-.628 1.681 1.681 0 0 1-1.867-1.866 1.681 1.681 0 0 0-.627-1.515 1.681 1.681 0 0 1 0-2.64c.458-.361.696-.935.627-1.515A1.681 1.681 0 0 1 9.165 4.3ZM14 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Seller</p>
+                  </li>
+      
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Price</p>
+                  </li>
+                </ul>
+      
+                <div class="mt-4 flex items-center justify-between gap-4">
+                  <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">$499</p>
+      
+                  <button type="button" class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                    </svg>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div class="h-56 w-full">
+                <a href="#">
+                  <img class="mx-auto h-full dark:hidden" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9oNay8lErzRohGTiSjXq2yt3CS_XwUHJYQQ&s" alt="" />
+                  <img class="mx-auto hidden h-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/macbook-pro-dark.svg" alt="" />
+                </a>
+              </div>
+      
+              <div class="pt-6">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <span class="me-2 rounded bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900 dark:text-primary-300"> Up to 5% off </span>
+      
+                  <div class="flex items-center justify-end gap-1">
+                    <button type="button" data-tooltip-target="tooltip-quick-look-6" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Quick look </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                        <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-quick-look-6" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Quick look
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+      
+                    <button type="button" data-tooltip-target="tooltip-add-to-favorites-6" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Add to Favorites </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-add-to-favorites-6" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Add to favorites
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+                  </div>
+                </div>
+      
+                <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">Apple MacBook PRO Laptop with M2 chip</a>
+      
+                <div class="mt-2 flex items-center gap-2">
+                  <div class="flex items-center">
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                  </div>
+      
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">4.9</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">(1,076)</p>
+                </div>
+      
+                <ul class="mt-2 flex items-center gap-4">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h6l2 4m-8-4v8m0-8V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v9h2m8 0H9m4 0h2m4 0h2v-4m0 0h-5m3.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-10 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Fast Delivery</p>
+                  </li>
+      
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Price</p>
+                  </li>
+                </ul>
+      
+                <div class="mt-4 flex items-center justify-between gap-4">
+                  <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">$2,599</p>
+      
+                  <button type="button" class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                    </svg>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div class="h-56 w-full">
+                <a href="#">
+                  <img class="mx-auto h-full dark:hidden" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwwkFcI3_buMxMQ3hIphi3ixWZ-5-givGr8A&s" alt="" />
+                  <img class="mx-auto hidden h-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/apple-watch-dark.svg" alt="" />
+                </a>
+              </div>
+      
+              <div class="pt-6">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <span class="me-2 rounded bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900 dark:text-primary-300"> Up to 20% off </span>
+      
+                  <div class="flex items-center justify-end gap-1">
+                    <button type="button" data-tooltip-target="tooltip-quick-look-7" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Quick look </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                        <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-quick-look-7" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Quick look
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+      
+                    <button type="button" data-tooltip-target="tooltip-add-to-favorites-7" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Add to Favorites </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-add-to-favorites-7" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Add to favorites
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+                  </div>
+                </div>
+      
+                <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">Apple Watch SE [GPS 40mm], Smartwatch</a>
+      
+                <div class="mt-2 flex items-center gap-2">
+                  <div class="flex items-center">
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                  </div>
+      
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">4.7</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">(387)</p>
+                </div>
+      
+                <ul class="mt-2 flex items-center gap-4">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h6l2 4m-8-4v8m0-8V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v9h2m8 0H9m4 0h2m4 0h2v-4m0 0h-5m3.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-10 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Fast Delivery</p>
+                  </li>
+      
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Price</p>
+                  </li>
+                </ul>
+      
+                <div class="mt-4 flex items-center justify-between gap-4">
+                  <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">$699</p>
+      
+                  <button type="button" class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                    </svg>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <div class="h-56 w-full">
+                <a href="#">
+                  <img class="mx-auto h-full dark:hidden" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQEF6H4sgFzYk4H2LVGqXmxlxLs6tSjtjAAg&s" alt="" />
+                  <img class="mx-auto hidden h-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/ipad-keyboard-dark.svg" alt="" />
+                </a>
+              </div>
+              <div class="pt-6">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <span class="me-2 rounded bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-800 dark:bg-primary-900 dark:text-primary-300"> Up to 35% off </span>
+      
+                  <div class="flex items-center justify-end gap-1">
+                    <button type="button" data-tooltip-target="tooltip-quick-look-8" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Quick look </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                        <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-quick-look-8" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Quick look
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+      
+                    <button type="button" data-tooltip-target="tooltip-add-to-favorites-8" class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <span class="sr-only"> Add to Favorites </span>
+                      <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                      </svg>
+                    </button>
+                    <div id="tooltip-add-to-favorites-8" role="tooltip" class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700" data-popper-placement="top">
+                      Add to favorites
+                      <div class="tooltip-arrow" data-popper-arrow=""></div>
+                    </div>
+                  </div>
+                </div>
+      
+                <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">Microsoft Surface Pro, Copilot+ PC, 13 Inch</a>
+      
+                <div class="mt-2 flex items-center gap-2">
+                  <div class="flex items-center">
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+      
+                    <svg class="h-4 w-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                  </div>
+      
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">4.9</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">(4,775)</p>
+                </div>
+      
+                <ul class="mt-2 flex items-center gap-4">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h6l2 4m-8-4v8m0-8V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v9h2m8 0H9m4 0h2m4 0h2v-4m0 0h-5m3.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm-10 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Fast Delivery</p>
+                  </li>
+      
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 7V6c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-1M3 18v-7c0-.6.4-1 1-1h11c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Best Price</p>
+                  </li>
+                </ul>
+      
+                <div class="mt-4 flex items-center justify-between gap-4">
+                  <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">$899</p>
+      
+                  <button type="button" class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <svg class="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                    </svg>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full text-center">
+            <button type="button" class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">Show more</button>
+          </div>
+        </div>
+        <!-- Filter modal -->
+        <form action="#" method="get" id="filterModal" tabindex="-1" aria-hidden="true" class="fixed left-0 right-0 top-0 z-50 hidden h-modal w-full overflow-y-auto overflow-x-hidden p-4 md:inset-0 md:h-full">
+          <div class="relative h-full w-full max-w-xl md:h-auto">
+            <!-- Modal content -->
+            <div class="relative rounded-lg bg-white shadow dark:bg-gray-800">
+              <!-- Modal header -->
+              <div class="flex items-start justify-between rounded-t p-4 md:p-5">
+                <h3 class="text-lg font-normal text-gray-500 dark:text-gray-400">Filters</h3>
+                <button type="button" class="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="filterModal">
+                  <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <!-- Modal body -->
+              <div class="px-4 md:px-5">
+                <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                  <ul class="-mb-px flex flex-wrap text-center text-sm font-medium" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+                    <li class="mr-1" role="presentation">
+                      <button class="inline-block pb-2 pr-1" id="brand-tab" data-tabs-target="#brand" type="button" role="tab" aria-controls="profile" aria-selected="false">Brand</button>
+                    </li>
+                    <li class="mr-1" role="presentation">
+                      <button class="inline-block px-2 pb-2 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300" id="advanced-filers-tab" data-tabs-target="#advanced-filters" type="button" role="tab" aria-controls="advanced-filters" aria-selected="false">Advanced Filters</button>
+                    </li>
+                  </ul>
+                </div>
+                <div id="myTabContent">
+                  <div class="grid grid-cols-2 gap-4 md:grid-cols-3" id="brand" role="tabpanel" aria-labelledby="brand-tab">
+                    <div class="space-y-2">
+                      <h5 class="text-lg font-medium uppercase text-black dark:text-white">A</h5>
+      
+                      <div class="flex items-center">
+                        <input id="apple" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="apple" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Apple (56) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="asus" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="asus" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Asus (97) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="acer" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="acer" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Acer (234) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="allview" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="allview" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Allview (45) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="atari" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="asus" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Atari (176) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="amd" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="amd" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> AMD (49) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="aruba" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="aruba" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Aruba (16) </label>
+                      </div>
+                    </div>
+      
+                    <div class="space-y-2">
+                      <h5 class="text-lg font-medium uppercase text-black dark:text-white">B</h5>
+      
+                      <div class="flex items-center">
+                        <input id="beats" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="beats" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Beats (56) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="bose" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="bose" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Bose (97) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="benq" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="benq" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> BenQ (45) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="bosch" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="bosch" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Bosch (176) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="brother" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="brother" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Brother (176) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="biostar" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="biostar" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Biostar (49) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="braun" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="braun" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Braun (16) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="blaupunkt" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="blaupunkt" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Blaupunkt (45) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="benq2" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="benq2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> BenQ (23) </label>
+                      </div>
+                    </div>
+      
+                    <div class="space-y-2">
+                      <h5 class="text-lg font-medium uppercase text-black dark:text-white">C</h5>
+      
+                      <div class="flex items-center">
+                        <input id="canon" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="canon" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Canon (49) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="cisco" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="cisco" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Cisco (97) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="cowon" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="cowon" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Cowon (234) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="clevo" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="clevo" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Clevo (45) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="corsair" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="corsair" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Corsair (15) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="csl" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="csl" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Canon (49) </label>
+                      </div>
+                    </div>
+      
+                    <div class="space-y-2">
+                      <h5 class="text-lg font-medium uppercase text-black dark:text-white">D</h5>
+      
+                      <div class="flex items-center">
+                        <input id="dell" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="dell" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Dell (56) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="dogfish" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="dogfish" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Dogfish (24) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="dyson" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="dyson" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Dyson (234) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="dobe" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="dobe" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Dobe (5) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="digitus" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="digitus" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Digitus (1) </label>
+                      </div>
+                    </div>
+      
+                    <div class="space-y-2">
+                      <h5 class="text-lg font-medium uppercase text-black dark:text-white">E</h5>
+      
+                      <div class="flex items-center">
+                        <input id="emetec" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="emetec" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Emetec (56) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="extreme" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="extreme" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Extreme (10) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="elgato" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="elgato" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Elgato (234) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="emerson" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="emerson" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Emerson (45) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="emi" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="emi" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> EMI (176) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="fugoo" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="fugoo" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Fugoo (49) </label>
+                      </div>
+                    </div>
+      
+                    <div class="space-y-2">
+                      <h5 class="text-lg font-medium uppercase text-black dark:text-white">F</h5>
+      
+                      <div class="flex items-center">
+                        <input id="fujitsu" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="fujitsu" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Fujitsu (97) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="fitbit" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="fitbit" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Fitbit (56) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="foxconn" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="foxconn" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Foxconn (234) </label>
+                      </div>
+      
+                      <div class="flex items-center">
+                        <input id="floston" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                        <label for="floston" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Floston (45) </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="space-y-4" id="advanced-filters" role="tabpanel" aria-labelledby="advanced-filters-tab">
+                  <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+                    <div class="grid grid-cols-2 gap-3">
+                      <div>
+                        <label for="min-price" class="block text-sm font-medium text-gray-900 dark:text-white"> Min Price </label>
+                        <input id="min-price" type="range" min="0" max="7000" value="300" step="1" class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700" />
+                      </div>
+      
+                      <div>
+                        <label for="max-price" class="block text-sm font-medium text-gray-900 dark:text-white"> Max Price </label>
+                        <input id="max-price" type="range" min="0" max="7000" value="3500" step="1" class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700" />
+                      </div>
+      
+                      <div class="col-span-2 flex items-center justify-between space-x-2">
+                        <input type="number" id="min-price-input" value="300" min="0" max="7000" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500 " placeholder="" required />
+      
+                        <div class="shrink-0 text-sm font-medium dark:text-gray-300">to</div>
+      
+                        <input type="number" id="max-price-input" value="3500" min="0" max="7000" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="" required />
+                      </div>
+                    </div>
+      
+                    <div class="space-y-3">
+                      <div>
+                        <label for="min-delivery-time" class="block text-sm font-medium text-gray-900 dark:text-white"> Min Delivery Time (Days) </label>
+      
+                        <input id="min-delivery-time" type="range" min="3" max="50" value="30" step="1" class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700" />
+                      </div>
+      
+                      <input type="number" id="min-delivery-time-input" value="30" min="3" max="50" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500 " placeholder="" required />
+                    </div>
+                  </div>
+      
+                  <div>
+                    <h6 class="mb-2 text-sm font-medium text-black dark:text-white">Condition</h6>
+      
+                    <ul class="flex w-full items-center rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+                      <li class="w-full border-r border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input id="condition-all" type="radio" value="" name="list-radio" checked class="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-primary-600" />
+                          <label for="condition-all" class="ml-2 w-full py-3 text-sm font-medium text-gray-900 dark:text-gray-300"> All </label>
+                        </div>
+                      </li>
+                      <li class="w-full border-r border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                          <input id="condition-new" type="radio" value="" name="list-radio" class="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-primary-600" />
+                          <label for="condition-new" class="ml-2 w-full py-3 text-sm font-medium text-gray-900 dark:text-gray-300"> New </label>
+                        </div>
+                      </li>
+                      <li class="w-full">
+                        <div class="flex items-center pl-3">
+                          <input id="condition-used" type="radio" value="" name="list-radio" class="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-500 dark:bg-gray-600 dark:ring-offset-gray-700 dark:focus:ring-primary-600" />
+                          <label for="condition-used" class="ml-2 w-full py-3 text-sm font-medium text-gray-900 dark:text-gray-300"> Used </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+      
+                  <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+                    <div>
+                      <h6 class="mb-2 text-sm font-medium text-black dark:text-white">Colour</h6>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <input id="blue" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="blue" class="ml-2 flex items-center text-sm font-medium text-gray-900 dark:text-gray-300">
+                            <div class="mr-2 h-3.5 w-3.5 rounded-full bg-primary-600"></div>
+                            Blue
+                          </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="gray" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="gray" class="ml-2 flex items-center text-sm font-medium text-gray-900 dark:text-gray-300">
+                            <div class="mr-2 h-3.5 w-3.5 rounded-full bg-gray-400"></div>
+                            Gray
+                          </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="green" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="green" class="ml-2 flex items-center text-sm font-medium text-gray-900 dark:text-gray-300">
+                            <div class="mr-2 h-3.5 w-3.5 rounded-full bg-green-400"></div>
+                            Green
+                          </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="pink" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="pink" class="ml-2 flex items-center text-sm font-medium text-gray-900 dark:text-gray-300">
+                            <div class="mr-2 h-3.5 w-3.5 rounded-full bg-pink-400"></div>
+                            Pink
+                          </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="red" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="red" class="ml-2 flex items-center text-sm font-medium text-gray-900 dark:text-gray-300">
+                            <div class="mr-2 h-3.5 w-3.5 rounded-full bg-red-500"></div>
+                            Red
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div>
+                      <h6 class="mb-2 text-sm font-medium text-black dark:text-white">Rating</h6>
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <input id="five-stars" type="radio" value="" name="rating" class="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+                          <label for="five-stars" class="ml-2 flex items-center">
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>First star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Second star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Third star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fourth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fifth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                          </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="four-stars" type="radio" value="" name="rating" class="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+                          <label for="four-stars" class="ml-2 flex items-center">
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>First star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Second star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Third star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fourth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fifth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                          </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="three-stars" type="radio" value="" name="rating" checked class="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+                          <label for="three-stars" class="ml-2 flex items-center">
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>First star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Second star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Third star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fourth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fifth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                          </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="two-stars" type="radio" value="" name="rating" class="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+                          <label for="two-stars" class="ml-2 flex items-center">
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>First star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Second star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Third star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fourth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fifth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                          </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="one-star" type="radio" value="" name="rating" class="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+                          <label for="one-star" class="ml-2 flex items-center">
+                            <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>First star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Second star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Third star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fourth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg aria-hidden="true" class="h-5 w-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <title>Fifth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div>
+                      <h6 class="mb-2 text-sm font-medium text-black dark:text-white">Weight</h6>
+      
+                      <div class="space-y-2">
+                        <div class="flex items-center">
+                          <input id="under-1-kg" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="under-1-kg" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Under 1 kg </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="1-1-5-kg" type="checkbox" value="" checked class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="1-1-5-kg" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> 1-1,5 kg </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="1-5-2-kg" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="1-5-2-kg" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> 1,5-2 kg </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="2-5-3-kg" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="2-5-3-kg" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> 2,5-3 kg </label>
+                        </div>
+      
+                        <div class="flex items-center">
+                          <input id="over-3-kg" type="checkbox" value="" class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+      
+                          <label for="over-3-kg" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Over 3 kg </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div>
+                    <h6 class="mb-2 text-sm font-medium text-black dark:text-white">Delivery type</h6>
+      
+                    <ul class="grid grid-cols-2 gap-4">
+                      <li>
+                        <input type="radio" id="delivery-usa" name="delivery" value="delivery-usa" class="peer hidden" checked />
+                        <label for="delivery-usa" class="inline-flex w-full cursor-pointer items-center justify-between rounded-lg border border-gray-200 bg-white p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 peer-checked:border-primary-600 peer-checked:text-primary-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-primary-500 md:p-5">
+                          <div class="block">
+                            <div class="w-full text-lg font-semibold">USA</div>
+                            <div class="w-full">Delivery only for USA</div>
+                          </div>
+                        </label>
+                      </li>
+                      <li>
+                        <input type="radio" id="delivery-europe" name="delivery" value="delivery-europe" class="peer hidden" />
+                        <label for="delivery-europe" class="inline-flex w-full cursor-pointer items-center justify-between rounded-lg border border-gray-200 bg-white p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 peer-checked:border-primary-600 peer-checked:text-primary-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-primary-500 md:p-5">
+                          <div class="block">
+                            <div class="w-full text-lg font-semibold">Europe</div>
+                            <div class="w-full">Delivery only for USA</div>
+                          </div>
+                        </label>
+                      </li>
+                      <li>
+                        <input type="radio" id="delivery-asia" name="delivery" value="delivery-asia" class="peer hidden" checked />
+                        <label for="delivery-asia" class="inline-flex w-full cursor-pointer items-center justify-between rounded-lg border border-gray-200 bg-white p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 peer-checked:border-primary-600 peer-checked:text-primary-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-primary-500 md:p-5">
+                          <div class="block">
+                            <div class="w-full text-lg font-semibold">Asia</div>
+                            <div class="w-full">Delivery only for Asia</div>
+                          </div>
+                        </label>
+                      </li>
+                      <li>
+                        <input type="radio" id="delivery-australia" name="delivery" value="delivery-australia" class="peer hidden" />
+                        <label for="delivery-australia" class="inline-flex w-full cursor-pointer items-center justify-between rounded-lg border border-gray-200 bg-white p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 peer-checked:border-primary-600 peer-checked:text-primary-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-primary-500 md:p-5">
+                          <div class="block">
+                            <div class="w-full text-lg font-semibold">Australia</div>
+                            <div class="w-full">Delivery only for Australia</div>
+                          </div>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Modal footer -->
+              <div class="flex items-center space-x-4 rounded-b p-4 dark:border-gray-600 md:p-5">
+                <button type="submit" class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-700 dark:hover:bg-primary-800 dark:focus:ring-primary-800">Show 24 results</button>
+                <button type="reset" class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">Reset</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      
+<script src="https://cdn.tailwindcss.com"></script>    
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+</body>
+</html>

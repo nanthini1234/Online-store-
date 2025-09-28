@@ -1,0 +1,36 @@
+/* Styling the overall container */
+.container {
+    text-align: center;
+    margin: 20px auto;
+}
+
+/* Styling for the color picker */
+.color-picker {
+    margin: 10px 0;
+}
+
+/* Canvas styling to center it and provide proper display */
+canvas {
+    border: 1px solid #ddd;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Controls styling for buttons and file input */
+.controls {
+    margin-top: 20px;
+}
+
+/* Customize button styling if needed */
+button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
